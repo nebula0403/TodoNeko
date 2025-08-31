@@ -3,6 +3,9 @@ import json
 import sys
 from pathlib import Path
 
+# 获取当前脚本所在目录
+BASE_DIR = Path(__file__).resolve().parent
+
 # 兼容导入PySide6或PyQt5
 try:
     from PySide6 import QtCore, QtGui, QtWidgets
@@ -27,14 +30,15 @@ if hasattr(Qt, 'AA_UseHighDpiPixmaps'):
 
 # 表情文件路径配置
 EMOTION_FILES = {
-    "normal": "assets/pet/normal.png",
-    "happy": "assets/pet/happy.png",
-    "curious": "assets/pet/curious.png",
-    "blink": "assets/pet/blink.png"
+    "normal": str(BASE_DIR / "assets" / "pet" / "normal.png"),
+    "happy": str(BASE_DIR / "assets" / "pet" / "happy.png"),
+    "curious": str(BASE_DIR / "assets" / "pet" / "curious.png"),
+    "blink": str(BASE_DIR / "assets" / "pet" / "wink.png"),
 }
 
+
 # 默认模板
-DEFAULT_TEMPLATES = ["喝水", "休息眼睛", "站立活动", "查看日程"]
+DEFAULT_TEMPLATES = ["喝水", "休息眼睛", "站起来活动一下", "查看日程"]
 
 class PetWidget(QLabel):
     """宠物表情显示组件"""
