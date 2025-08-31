@@ -6,21 +6,13 @@ from pathlib import Path
 # 获取当前脚本所在目录
 BASE_DIR = Path(__file__).resolve().parent
 
-# 兼容导入PySide6或PyQt5
-try:
-    from PySide6 import QtCore, QtGui, QtWidgets
-    from PySide6.QtCore import Qt, Signal
-    from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
+# 兼容导入PySide6
+from PySide6 import QtCore, QtGui, QtWidgets
+from PySide6.QtCore import Qt, Signal
+from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
                                   QLabel, QLineEdit, QPushButton, QComboBox, QListWidget,
                                   QListWidgetItem, QCheckBox, QToolButton, QStatusBar, QMessageBox)
-    from PySide6.QtGui import QPixmap, QPainter, QPalette, QColor
-except ImportError:
-    from PyQt5 import QtCore, QtGui, QtWidgets
-    from PyQt5.QtCore import Qt, pyqtSignal as Signal
-    from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
-                                QLabel, QLineEdit, QPushButton, QComboBox, QListWidget,
-                                QListWidgetItem, QCheckBox, QToolButton, QStatusBar, QMessageBox)
-    from PyQt5.QtGui import QPixmap, QPainter, QPalette, QColor
+from PySide6.QtGui import QPixmap, QPainter, QPalette, QColor
 
 # 启用高DPI支持
 if hasattr(Qt, 'AA_EnableHighDpiScaling'):
